@@ -1,0 +1,17 @@
+# Must contain general patterens and not paths
+- **/*[Cc]ache*
+- **/*[Hh]istory*
+- **/*[Ss]ocket*
+- **/*[Tt]humb*
+- **/*[Tt]rash*
+- **/*[Bb]ackup
+- **/*.[Bb]ak
+- **/*[Dd]ump
+- **/*.[Ll]ock
+- **/*.log
+- **/*.part
+- **/*.[Tt]mp
+- **/*.[Tt]emp
+- **/*.DS_Store
+- **/*.swp
+- **/*~
