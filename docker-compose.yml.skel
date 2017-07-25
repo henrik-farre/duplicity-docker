@@ -1,0 +1,18 @@
+---
+version: '3'
+services:
+  duplicity-docker:
+    container_name: duplicity-docker
+    hostname: $HOSTNAME
+    env_file: duplicity-conf.env
+    build: .
+    logging:
+      driver: "journald"
+    volumes:
+    # Dirs to backup
+      - /home:/backup/home:ro
+    # Configruation ssh and gnupg
+      - ssh/:/root/.ssh/:ro
+      - gnupg:/root/.gnupg:ro
+    # Duplicity cache
+      - /var/cache/duplicity:/var/cache/duplicity
