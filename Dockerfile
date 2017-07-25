@@ -15,4 +15,4 @@ CMD ["/usr/bin/duplicity", "--help"]
 ARG VCS_REF="local"
 LABEL org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.vcs-url="https://github.com/henrik-farre/duplicity-docker.git" \
-      org.label-schema.version="0.7.11-1"
+      org.label-schema.version="0.7.11-2"
