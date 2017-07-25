@@ -6,7 +6,7 @@ COPY scripts ./scripts
 COPY etc/duplicity/exclude-common /etc/duplicity/exclude-common
 
 RUN set -ex && \
-   apk add --update duplicity bash py-paramiko py-packaging py-setuptools patch && \
+   apk add --update duplicity bash py-paramiko py-packaging py-setuptools && \
    mkdir /backup
 
 ENTRYPOINT ["./scripts/entry"]
