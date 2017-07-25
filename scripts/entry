@@ -1,0 +1,11 @@
+#!/bin/bash
+set -o nounset
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+if [ -e ./scripts/${1:-help} ]; then
+    exec ./scripts/"$@"
+else
+    exec "$@"
+fi

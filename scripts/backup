@@ -1,0 +1,20 @@
+#!/bin/bash
+set -o nounset
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+for SRC_DIR in /backup/*/; do
+  CLEAN_SRC_DIR=$(basename "$SRC_DIR")
+  DEST_DIR=${REMOTE_DIR}/${CLEAN_SRC_DIR}
+
+  echo  "========================= Starting backup of ${HOSTNAME}${SRC_DIR} ========================="
+  # Pr dir exclude list
+  DIR_EXCLUDE=""
+  if [[ -f "${SRC_DIR}.duplicity_exclude" ]]; then
+    DIR_EXCLUDE="--exclude-filelist=${SRC_DIR}.duplicity_exclude"
+    export DIR_EXCLUDE
+  fi
+
+  duplicity incr ${EXCLUDE_OPTS} ${DIR_EXCLUDE} ${COMMON_OPTS} ${BACKUP_OPTS} ${SRC_DIR} ${DEST_DIR}
+done

@@ -1,0 +1,13 @@
+#!/bin/bash
+set -o nounset
+set -o errexit
+set -o errtrace
+set -o pipefail
+
+for SRC_DIR in /backup/*/; do
+  CLEAN_SRC_DIR=$(basename "$SRC_DIR")
+  DEST_DIR="${REMOTE_DIR}/${CLEAN_SRC_DIR}"
+
+  echo  "========================= Cleaning ${HOSTNAME}${SRC_DIR} ========================="
+  duplicity cleanup --force ${COMMON_OPTS} ${DEST_DIR}
+done

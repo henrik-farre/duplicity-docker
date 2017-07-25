@@ -1,15 +1,8 @@
 #!/bin/bash
 set -o nounset
 set -o errexit
+set -o errtrace
 set -o pipefail
-
-if [[ ${EUID} -ne 0 ]]; then
-  echo "Needs root access"
-  exit 1
-fi
-
-# shellcheck disable=SC1091
-source /root/.duplicity/conf
 
 if [[ "${#}" -eq 0 ]]; then
   echo "Missing argument:"
