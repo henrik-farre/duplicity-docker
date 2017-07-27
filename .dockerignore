@@ -1,1 +1,5 @@
-.git/
+.git
+docker-compose.yml.skel
+hooks
+README.md
+*~
