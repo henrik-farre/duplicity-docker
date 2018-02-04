@@ -4,7 +4,10 @@ set -o errexit
 set -o errtrace
 set -o pipefail
 
-if [ -e ./scripts/${1:-help} ]; then
+# https://github.com/docker/compose/issues/4076
+sleep 0.1
+
+if [ -e ./scripts/${1} ]; then
     exec ./scripts/"$@"
 else
     exec "$@"
