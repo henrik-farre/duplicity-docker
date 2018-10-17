@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:18.10
 WORKDIR /backup
 ENV LANG C.UTF-8
 COPY scripts ./scripts
