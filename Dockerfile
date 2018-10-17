@@ -1,10 +1,10 @@
 FROM ubuntu:18.10
 WORKDIR /backup
 ENV LANG C.UTF-8
-COPY scripts ./scripts
+COPY scripts /scripts
 COPY etc/duplicity/exclude-common /etc/duplicity/exclude-common
 
-ENTRYPOINT ["./scripts/entry"]
+ENTRYPOINT ["/scripts/entry"]
 CMD ["/usr/bin/duplicity", "--help"]
 
 RUN set -ex; \
